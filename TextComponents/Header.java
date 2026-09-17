@@ -1,51 +1,48 @@
 import java.awt.FlowLayout;
-import javax.swing.JButton;
+import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
-/*
-    Author: Prof. Autorino
-
-    Header.java
-
-    Panel with a label and a textfield nested in a scrollpane.
-*/
+/**
+ * 
+ * Header.java
+ * 
+ * @author Tajrin Abdullah
+ * 
+ * Panel with title label.
+ */
 public class Header {
     private JPanel headerPanel = null;
-    private JLabel greetingLabel = null;
-    private JTextField greetingField = null;
-    private JButton updateBtn = null;
+    private JLabel titleLabel = null;
 
-    public Header() {
+    /**
+     * Default Constructor
+     */
+    public Header(){
+        this("Story Generator");
+    }
+    
+    /**
+     * Constructor with param
+     * @param title title of the story/program
+     */
+    public Header(String title) {
         // Create a panel with a centered flow layout.
-        headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        greetingLabel = new JLabel("Greeting:");
-        headerPanel.add(greetingLabel);
-
-        greetingField = new JTextField(20);
-        greetingField.setText("Hello, World!");
-        headerPanel.add(greetingField);
-
-        updateBtn = new JButton("Submit");
-        headerPanel.add(updateBtn);
+        titleLabel = new JLabel(title, SwingConstants.CENTER);
+        titleLabel.setFont(titleLabel.getFont().deriveFont(Font.BOLD, 18f));
+        headerPanel.add(titleLabel);
     }
 
-    /* return elements so we can access their attributes. */
+    /* Return elements so we can access their attributes. */
     public JPanel getHeaderPanel() {
         return headerPanel;
     }    
 
-    public JLabel getGreetingLabel() {
-        return greetingLabel;
+    public JLabel getTitleLabel() {
+        return titleLabel;
     }
 
-    public JTextField getGreetingField() {
-        return greetingField;
-    }
-
-    public JButton getUpdateButton() {
-        return updateBtn;
-    }
 }
