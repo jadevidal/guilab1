@@ -3,6 +3,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 //TODO: Incorporate Hcks 1 and 4 (use colors) 
+
 public class StoryGenerator {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(StoryGenerator::createAndShowGUI);
@@ -12,7 +13,7 @@ public class StoryGenerator {
         // Main Window
         JFrame frame = new JFrame("Text Components");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 350);
+        frame.setSize(350, 300);
         frame.setLocationRelativeTo(null);
         frame.setLayout(new BorderLayout(10, 10));
 
@@ -23,6 +24,7 @@ public class StoryGenerator {
         /* Center Panel */
         Center center = new Center();
         frame.add(center.getCenterPanel(), BorderLayout.CENTER);
+        
 
         /* Footer Panel */
         Footer footer = new Footer();
@@ -34,49 +36,52 @@ public class StoryGenerator {
         // Save button prints the user's inputs into system out.
         footer.getSaveButton().addActionListener(e -> {
 
-            System.out.println("|======= User Inputs =======|");
-            
-            System.out.println("Object: " + center.getObject());
-            System.out.println("Color: " + center.getColor());
-            System.out.println("Number: " + center.getNumber());
-            System.out.println("Place: " + center.getPlace());
-            System.out.println("Sound: " + center.getSound());
-            System.out.println("Character: " + center.getCharacter());
+            System.out.println("\n|======= User Inputs =======|"); 
 
-            System.out.println("|===========================|");
+            System.out.println("Object: " + center.getObjectField().getText());
+            System.out.println("Color: " + center.getColorField().getText());
+            System.out.println("Number: " + center.getNumberField().getText());
+            System.out.println("Place: " + center.getPlaceField().getText());
+            System.out.println("Sound: " + center.getSoundField().getText());
+            System.out.println("Character: " + center.getCharacterField().getText()); 
+            
+            System.out.println("|===========================|\n");
         });
 
 
         // Clear button clears the textfields
         footer.getClearButton().addActionListener(e -> {
-            center.setObject("");
-            center.setColor("");
-            center.setNumber("");
-            center.setPlace("");
-            center.setSound("");
-            center.setCharacter("");
+            center.setObjectField("");
+            center.setColorField("");
+            center.setNumberField("");
+            center.setPlaceField("");
+            center.setSoundField("");
+            center.setCharacterField("");
         });
 
 
         // Generate button prints the story into system out
-        footer.getGenerateButton().addActionListener(e -> {
-            String story = center.getCharacter() + " woke up alone in the middle of nowhere. " +
-                           "He looked to his left and saw a half-decayed wooden sign that read, " +
-                           "\"20 miles left until " + center.getPlace() + ".\" " +
-                           center.getCharacter() + " walked through the " +
-                           center.getColor() + "-tinted, misty forest until he heard " +
-                           center.getSound() + " all around him. " +
-                           "He increased his pace, trying not to panic, as footsteps grew louder behind him. " +
-                           "He turned abruptly to check, but found nothing. " +
-                           "His worry eased, but before he turned back, a blunt " +
-                           center.getObject() + " hit him from behind. " +
-                           "As he fell to the ground, he saw the figures of " +
-                           center.getNumber() + " creatures standing silently behind " +
-                           "the person holding the " + center.getObject() + ".";
+        footer.getGenerateButton().addActionListener(e -> { 
+            String generateStory = "\n" + center.getCharacterField().getText() + " woke up alone in the middle of nowhere." +
+                           "He looked\nto his left and saw a half-decayed wooden sign\nthat read, " +
+                           "\"20 miles left until" + center.getPlaceField().getText() + ".\"\n\n" +
+                           center.getCharacterField().getText() + " walked through the " +
+                           center.getColorField().getText() + "-tinted, misty \nforest until he heard " +
+                           center.getSoundField().getText() + " all around him.\n\n" +
+                           
+                           "He increased his pace, trying not to panic, as\nfootsteps grew louder behind him." +
+                           "He turned\nabruptly to check, but found nothing.\n\n" +
 
-            System.out.println("|===== Generated Story =====|");
-            System.out.println(story);
-            System.out.println("|===========================|");
+                           "His worry eased, but before he turned back, a blunt\n" +
+                           center.getObjectField().getText() + " hit him from behind.\n\n" +
+                           "\nAs he fell to the ground, he saw the figures of " +
+                           center.getNumberField().getText() + " creatures\nstanding silently behind " +
+                           "the person holding the " + center.getObjectField().getText() + ".\n"; 
+            
+
+            System.out.println("\n|===== Generated Story =====|");
+            System.out.println(generateStory);
+            System.out.println("|===========================|\n");
         });
         frame.setVisible(true);
         
