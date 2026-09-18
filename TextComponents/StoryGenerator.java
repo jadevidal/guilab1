@@ -19,7 +19,7 @@ public class StoryGenerator {
         // Main Window
         JFrame frame = new JFrame("Text Components");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(350, 300);
+        frame.setSize(400, 300);
         frame.setLocationRelativeTo(null);
         frame.setLayout(new BorderLayout(10, 0));
 
@@ -83,6 +83,13 @@ public class StoryGenerator {
             System.out.println("\n|===== Generated Story =====|");
             System.out.println(generateStory);
             System.out.println("|===========================|\n");
+        });
+
+        // Switch mode from light mode to dark mode and vice versa
+        footer.getModeButton().addActionListener(e -> {
+            header.toggleMode();
+            center.toggleMode();
+            footer.toggleMode();
         });
         frame.setVisible(true);
         

@@ -35,8 +35,14 @@ public class Center {
     private JTextField characterField = null;
 
     /* Colors */
+
+    /* Light Mode Colors */
     Color periWhite   = new Color(237, 235, 250); // #EDEBFA
     Color darkText    = new Color(40, 40, 50);    // gray
+
+    /* Dark Mode Colors */
+    Color mocha       = new Color(140, 111, 78);  // #8C6F4E
+    Color blackText   = new Color(26,26,23);      // #1A1A17
 
     /**
      * Default Constructor
@@ -106,13 +112,41 @@ public class Center {
         questionPanel.add(characterLabel);
         questionPanel.add(characterField);
 
-        // Apply background styling to both panels to ensure complete color fill
+        // Apply background styling to both panels to ensure complete color fill (Default is light mode)
         centerPanel.setBackground(periWhite);
         questionPanel.setBackground(periWhite);
 
         /* Add question panel on center panel */
         centerPanel.add(questionPanel, BorderLayout.CENTER);
 
+    }
+
+    /* Method that will help toggle between light and dark mode */
+    public void toggleMode() {
+        // Toggles the background and text colors between light and dark mode colors.
+        if (centerPanel.getBackground().equals(periWhite)) {
+            centerPanel.setBackground(mocha);
+            questionPanel.setBackground(mocha);
+        } else {
+            centerPanel.setBackground(periWhite);
+            questionPanel.setBackground(periWhite);
+        }
+
+        // Update text color to match with the current background color
+        Color textColor = Color.BLACK; // Default to black
+        if (centerPanel.getBackground().equals(periWhite)) {
+            textColor = darkText;
+        } else {
+            textColor = blackText;
+        }
+
+        // Applies the text color to all labels in the question panel.
+        objectLabel.setForeground(textColor);
+        colorLabel.setForeground(textColor);
+        numberLabel.setForeground(textColor);
+        placeLabel.setForeground(textColor);
+        soundLabel.setForeground(textColor);
+        characterLabel.setForeground(textColor);
     }
 
     /* Getters */

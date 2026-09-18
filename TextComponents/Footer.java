@@ -9,7 +9,7 @@ import javax.swing.JPanel;
  * 
  * @author Tajrin Abdullah, Jade Vidal
  * 
- * Footer panel with buttons(clear, save, generate)
+ * Footer panel with buttons(clear, save, generate, switch mode)
  */
 public class Footer {
 
@@ -17,16 +17,23 @@ public class Footer {
     private JButton clearBtn = null;
     private JButton saveBtn = null;
     private JButton generateBtn = null;
+    private JButton modeBtn = null;
     private JButton exit = null;
     
     /* Colors */
+
+    /* Light Mode Colors */
     Color iceBlue = new Color(220, 234, 249); // #DCEAF9
+
+    /* Dark Mode Colors */
+    Color caramel = new Color(212, 175, 55); // #D4AF37
+    
 
     /**
      * Default constructor.
      */
     public Footer() {
-        this("Clear", "Save", "Generate");
+        this("Clear", "Save", "Generate", "Switch Mode");
     }
 
     /**
@@ -35,7 +42,7 @@ public class Footer {
      * @param saveText
      * @param generateText
      */
-    public Footer(String clearText, String saveText, String generateText) {
+    public Footer(String clearText, String saveText, String generateText, String switchMode) {
 
         footerPanel = new JPanel();
         footerPanel.setLayout(new FlowLayout());
@@ -44,11 +51,23 @@ public class Footer {
         clearBtn = new JButton(clearText);
         saveBtn = new JButton(saveText);
         generateBtn = new JButton(generateText);
+        modeBtn = new JButton(switchMode);
         exit = new JButton("Exit");
 
         footerPanel.add(clearBtn);
         footerPanel.add(saveBtn);
         footerPanel.add(generateBtn);
+        footerPanel.add(modeBtn);
+    }
+
+    /* Method that will help toggle between light and dark mode */
+    public void toggleMode() {
+        // Toggles the background between light and dark mode colors.
+        if (footerPanel.getBackground().equals(iceBlue)) {
+            footerPanel.setBackground(caramel);
+        } else {
+            footerPanel.setBackground(iceBlue);
+        }
     }
 
     /* Setter methods */
@@ -62,6 +81,10 @@ public class Footer {
 
     public void setGenerateButton(String text) {
         generateBtn.setText(text);
+    }
+
+    public void setModeButton(String text) {
+        modeBtn.setText(text);
     }
 
     /* Getter methods */
@@ -79,5 +102,9 @@ public class Footer {
 
     public JButton getGenerateButton() {
         return generateBtn;
+    }
+
+    public JButton getModeButton() {
+        return modeBtn;
     }
 }

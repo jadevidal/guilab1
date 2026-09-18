@@ -20,7 +20,12 @@ public class Header {
     private JLabel titleLabel = null;
 
     /* Colors */
+
+    /* Light Mode Colors */
     Color lavender    = new Color(185, 176, 214); // #B9B0D6
+
+    /* Dark Mode Colors */
+    Color chocoBrown  = new Color(75, 46, 30); // #4B2E1E
 
     /**
      * Default Constructor
@@ -42,6 +47,16 @@ public class Header {
         titleLabel.setFont(titleLabel.getFont().deriveFont(Font.BOLD, 18f));
         titleLabel.setForeground(Color.WHITE);
         headerPanel.add(titleLabel);
+    }
+
+    /* Method that will help toggle between light and dark mode */
+    public void toggleMode() {
+        // Toggles the background between light and dark mode colors.
+        if (headerPanel.getBackground().equals(lavender)) {
+            headerPanel.setBackground(chocoBrown);
+        } else {
+            headerPanel.setBackground(lavender);
+        }
     }
 
     /* Return elements so we can access their attributes. */
