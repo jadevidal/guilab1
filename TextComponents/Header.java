@@ -9,14 +9,18 @@ import javax.swing.SwingConstants;
  * 
  * Header.java
  * 
- * @author Tajrin Abdullah
+ * @author Tajrin Abdullah, Jade Vidal
  * 
  * Panel with title label.
  */
 public class Header {
+
+    /* Panle/Label Variable */
     private JPanel headerPanel = null;
     private JLabel titleLabel = null;
-    private Color lavendar = new Color(185, 176, 214);
+
+    /* Colors */
+    Color lavender    = new Color(185, 176, 214); // #B9B0D6
 
     /**
      * Default Constructor
@@ -32,11 +36,11 @@ public class Header {
     public Header(String title) {
         // Create a panel with a centered flow layout.
         headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        headerPanel.setBackground(new Color(220, 234, 249));;
+        headerPanel.setBackground(lavender);
 
         titleLabel = new JLabel(title, SwingConstants.CENTER);
         titleLabel.setFont(titleLabel.getFont().deriveFont(Font.BOLD, 18f));
-        titleLabel.setForeground(lavendar);
+        titleLabel.setForeground(Color.WHITE);
         headerPanel.add(titleLabel);
     }
 

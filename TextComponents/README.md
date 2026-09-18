@@ -9,6 +9,7 @@
 - Name a character: (default: Levi) 
 
 ## Story:
+
 (characterName) woke up alone in the middle of nowhere. He looked to his left and saw a half-decayed wooden sign that read, “20 miles left until (place).”
 
 (characterName) walked through the (color)-tinted, misty forest until he heard (soundType) all around him. He increased his pace, trying not to panic, as footsteps grew louder behind him.
@@ -19,7 +20,6 @@ As he fell to the ground, he saw the figures of (number) creatures standing sile
 
 
 ### Description
-
 
 This application generates a story from user input "text".
 It does the following:

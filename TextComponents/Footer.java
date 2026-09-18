@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -17,6 +18,9 @@ public class Footer {
     private JButton saveBtn = null;
     private JButton generateBtn = null;
     private JButton exit = null;
+    
+    /* Colors */
+    Color iceBlue = new Color(220, 234, 249); // #DCEAF9
 
     /**
      * Default constructor.
@@ -35,6 +39,7 @@ public class Footer {
 
         footerPanel = new JPanel();
         footerPanel.setLayout(new FlowLayout());
+        footerPanel.setBackground(iceBlue);
 
         clearBtn = new JButton(clearText);
         saveBtn = new JButton(saveText);

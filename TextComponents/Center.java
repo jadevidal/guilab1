@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,9 +12,6 @@ import javax.swing.JTextField;
  * @author Tajrin Abdullah
  * 
  */
-
-//TODO: SET UP THE QUESTIONS AND TEXTS
-
 public class Center {
 
     /* Panel variables */
@@ -28,7 +26,6 @@ public class Center {
     private JLabel soundLabel = null;
     private JLabel characterLabel = null;
 
-
     /* Text Field variables */
     private JTextField objectField = null;
     private JTextField colorField = null;
@@ -36,6 +33,10 @@ public class Center {
     private JTextField placeField = null;
     private JTextField soundField = null;
     private JTextField characterField = null;
+
+    /* Colors */
+    Color periWhite   = new Color(237, 235, 250); // #EDEBFA
+    Color darkText    = new Color(40, 40, 50);    // gray
 
     /**
      * Default Constructor
@@ -54,49 +55,60 @@ public class Center {
      * @param character the name of a character
      */
     public Center(String object, String color, String number, String place, String sound, String character) {
+
         centerPanel = new JPanel(new BorderLayout(10, 10));
         /* 
            Code logic from official docs:
            https://docs.oracle.com/javase/tutorial/uiswing/layout/grid.html
         */
         questionPanel = new JPanel(new GridLayout(6,2, 5, 5));
+    
 
         /* Object Name */
         objectLabel = new JLabel("   Name an object: ");
+        objectLabel.setForeground(darkText);
         objectField = new JTextField(object, 15);
         questionPanel.add(objectLabel);
         questionPanel.add(objectField);
 
         /* Color Name */
         colorLabel = new JLabel("   Favorite color:");
+        colorLabel.setForeground(darkText);
         colorField = new JTextField(color, 15);
         questionPanel.add(colorLabel);
         questionPanel.add(colorField);
 
         /* Big Number */
         numberLabel = new JLabel("   A big number:");
+        numberLabel.setForeground(darkText);
         numberField = new JTextField(number, 15);
         questionPanel.add(numberLabel);
         questionPanel.add(numberField);
 
-
         /* Place Name */
         placeLabel = new JLabel("   Name a place:");
+        placeLabel.setForeground(darkText);
         placeField = new JTextField(place, 15);
         questionPanel.add(placeLabel);
         questionPanel.add(placeField);
 
         /* Sound Type */
         soundLabel = new JLabel("   Type of sound:");
+        soundLabel.setForeground(darkText);
         soundField = new JTextField(sound, 15);
         questionPanel.add(soundLabel);
         questionPanel.add(soundField);
 
         /* Character Name */
         characterLabel = new JLabel("   Name a character:");
+        characterLabel.setForeground(darkText);
         characterField = new JTextField(character, 15);
         questionPanel.add(characterLabel);
         questionPanel.add(characterField);
+
+        // Apply background styling to both panels to ensure complete color fill
+        centerPanel.setBackground(periWhite);
+        questionPanel.setBackground(periWhite);
 
         /* Add question panel on center panel */
         centerPanel.add(questionPanel, BorderLayout.CENTER);
@@ -137,13 +149,6 @@ public class Center {
     }
 
     /* Setters */
-    public void setCenterPanel(JPanel centerPanel) {
-        this.centerPanel = centerPanel;
-    }
-
-    public void setQuestionPanel(JPanel questionPanel) {
-        this.questionPanel = questionPanel;
-    }
 
     public void setObjectField(String object) {
         objectField.setText(object);

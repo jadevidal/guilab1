@@ -2,9 +2,15 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-//TODO: Incorporate Hcks 1 and 4 (use colors) 
-
+/**
+ * 
+ * StoryGenerator.java
+ * 
+ * @author Tajrin Abdullah, Jade Vidal
+ * 
+ */
 public class StoryGenerator {
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(StoryGenerator::createAndShowGUI);
     }
@@ -15,7 +21,7 @@ public class StoryGenerator {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(350, 300);
         frame.setLocationRelativeTo(null);
-        frame.setLayout(new BorderLayout(10, 10));
+        frame.setLayout(new BorderLayout(10, 0));
 
         /* Header Panel */
         Header header = new Header();
@@ -25,11 +31,9 @@ public class StoryGenerator {
         Center center = new Center();
         frame.add(center.getCenterPanel(), BorderLayout.CENTER);
         
-
         /* Footer Panel */
         Footer footer = new Footer();
         frame.add(footer.getFooterPanel(), BorderLayout.SOUTH);
-
 
         /* Event Listeners */
 
@@ -48,7 +52,6 @@ public class StoryGenerator {
             System.out.println("|===========================|\n");
         });
 
-
         // Clear button clears the textfields
         footer.getClearButton().addActionListener(e -> {
             center.setObjectField("");
@@ -59,26 +62,24 @@ public class StoryGenerator {
             center.setCharacterField("");
         });
 
-
         // Generate button prints the story into system out
         footer.getGenerateButton().addActionListener(e -> { 
-            String generateStory = "\n" + center.getCharacterField().getText() + " woke up alone in the middle of nowhere." +
+            String generateStory = "\n" + center.getCharacterField().getText() + " woke up alone in the middle of nowhere. " +
                            "He looked\nto his left and saw a half-decayed wooden sign\nthat read, " +
                            "\"20 miles left until" + center.getPlaceField().getText() + ".\"\n\n" +
                            center.getCharacterField().getText() + " walked through the " +
                            center.getColorField().getText() + "-tinted, misty \nforest until he heard " +
                            center.getSoundField().getText() + " all around him.\n\n" +
                            
-                           "He increased his pace, trying not to panic, as\nfootsteps grew louder behind him." +
+                           "He increased his pace, trying not to panic, as\nfootsteps grew louder behind him. " +
                            "He turned\nabruptly to check, but found nothing.\n\n" +
 
                            "His worry eased, but before he turned back, a blunt\n" +
-                           center.getObjectField().getText() + " hit him from behind.\n\n" +
+                           center.getObjectField().getText() + " hit him from behind.\n" +
                            "\nAs he fell to the ground, he saw the figures of " +
                            center.getNumberField().getText() + " creatures\nstanding silently behind " +
                            "the person holding the " + center.getObjectField().getText() + ".\n"; 
             
-
             System.out.println("\n|===== Generated Story =====|");
             System.out.println(generateStory);
             System.out.println("|===========================|\n");
