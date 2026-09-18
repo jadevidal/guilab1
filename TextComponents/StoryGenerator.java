@@ -66,7 +66,7 @@ public class StoryGenerator {
         footer.getGenerateButton().addActionListener(e -> { 
             String generateStory = "\n" + center.getCharacterField().getText() + " woke up alone in the middle of nowhere. " +
                            "He looked\nto his left and saw a half-decayed wooden sign\nthat read, " +
-                           "\"20 miles left until" + center.getPlaceField().getText() + ".\"\n\n" +
+                           "\"20 miles left until " + center.getPlaceField().getText() + ".\"\n\n" +
                            center.getCharacterField().getText() + " walked through the " +
                            center.getColorField().getText() + "-tinted, misty \nforest until he heard " +
                            center.getSoundField().getText() + " all around him.\n\n" +
