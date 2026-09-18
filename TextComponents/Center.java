@@ -9,7 +9,7 @@ import javax.swing.JTextField;
  * 
  * Center.java
  * 
- * @author Tajrin Abdullah
+ * @author Tajrin Abdullah, Jade Vidal
  * 
  */
 public class Center {
