@@ -20,7 +20,12 @@ public class Header {
     private JLabel titleLabel = null;
 
     /* Colors */
+
+    /* Light Mode Colors */
     Color lavender    = new Color(185, 176, 214); // #B9B0D6
+
+    /* Dark Mode Colors */
+    Color chocoBrown  = new Color(75, 46, 30);   // #4B2E1E
 
     /**
      * Default Constructor
