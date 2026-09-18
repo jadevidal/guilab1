@@ -8,6 +8,8 @@ import javax.swing.SwingUtilities;
  * 
  * @author Tajrin Abdullah, Jade Vidal
  * 
+ * Main driver class to run the story generator using center, header, and footer panels with layout managers.
+ * 
  */
 public class StoryGenerator {
 
@@ -16,7 +18,8 @@ public class StoryGenerator {
     }
 
     public static void createAndShowGUI() {
-        // Main Window
+
+        /* Main Window */
         JFrame frame = new JFrame("Text Components");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
@@ -37,7 +40,7 @@ public class StoryGenerator {
 
         /* Event Listeners */
 
-        // Save button prints the user's inputs into system out.
+        /* Save button prints the user's inputs into system out. */
         footer.getSaveButton().addActionListener(e -> {
 
             System.out.println("\n|======= User Inputs =======|"); 
@@ -52,7 +55,7 @@ public class StoryGenerator {
             System.out.println("|===========================|\n");
         });
 
-        // Clear button clears the textfields
+        /* Clear button clears the textfields. */
         footer.getClearButton().addActionListener(e -> {
             center.setObjectField("");
             center.setColorField("");
@@ -62,7 +65,7 @@ public class StoryGenerator {
             center.setCharacterField("");
         });
 
-        // Generate button prints the story into system out
+        /* Generate button prints the story into system out. */
         footer.getGenerateButton().addActionListener(e -> { 
             String generateStory = "\n" + center.getCharacterField().getText() + " woke up alone in the middle of nowhere. " +
                            "He looked\nto his left and saw a half-decayed wooden sign\nthat read, " +
@@ -85,14 +88,13 @@ public class StoryGenerator {
             System.out.println("|===========================|\n");
         });
 
-        // Switch mode from light mode to dark mode and vice versa
+        /* Switch mode from light mode to dark mode and vice versa. */
         footer.getModeButton().addActionListener(e -> {
             header.toggleMode();
             center.toggleMode();
             footer.toggleMode();
         });
         frame.setVisible(true);
-        
     }
 }
 

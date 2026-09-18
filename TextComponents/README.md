@@ -34,3 +34,10 @@ javac Header.java Center.java Footer.java
 Once you have confirmed that the necessary components work, you may compile and run the Main class.
 javac StoryGenerator.java
 java StoryGenerator
+
+### Grading Rubric:
+
+- Did we meet the assignment requirements? 50/50
+- Correct software architecture? 20/20
+- Well documented code? 20/20
+- At least 1 hack used? 10/10

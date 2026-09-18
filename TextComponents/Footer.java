@@ -7,27 +7,29 @@ import javax.swing.JPanel;
  * 
  * Footer.java
  * 
- * @author Tajrin Abdullah, Jade Vidal
+ * @author Jade Vidal, Tajrin Abdullah
  * 
- * Footer panel with buttons(clear, save, generate, switch mode)
+ * Footer panel with buttons(clear, save, generate, and switch mode.)
  */
 public class Footer {
 
+    /* Initialize variables */
     private JPanel footerPanel = null;
     private JButton clearBtn = null;
     private JButton saveBtn = null;
     private JButton generateBtn = null;
     private JButton modeBtn = null;
-    private JButton exit = null;
+    private JButton exit = null; // Unused
     
     /* Colors */
 
     /* Light Mode Colors */
-    Color iceBlue = new Color(220, 234, 249); // #DCEAF9
+    private Color iceBlue = new Color(220, 234, 249); // #DCEAF9
+    private Color darkText = new Color(40, 40, 50);    // gray
 
     /* Dark Mode Colors */
-    Color caramel = new Color(212, 175, 55); // #D4AF37
-    
+    private Color caramel = new Color(212, 175, 55); // #D4AF37
+    private Color mocha = new Color(140, 111, 78);  // #8C6F4E
 
     /**
      * Default constructor.
@@ -38,9 +40,10 @@ public class Footer {
 
     /**
      * Constructor with parameters.
-     * @param clearText
-     * @param saveText
-     * @param generateText
+     * @param clearText the text for clear button
+     * @param saveText the text for save button
+     * @param generateText the text for generate button
+     * @param switchMode the text for switch mode button
      */
     public Footer(String clearText, String saveText, String generateText, String switchMode) {
 
@@ -52,7 +55,30 @@ public class Footer {
         saveBtn = new JButton(saveText);
         generateBtn = new JButton(generateText);
         modeBtn = new JButton(switchMode);
-        exit = new JButton("Exit");
+
+        clearBtn.setForeground(iceBlue); 
+        clearBtn.setBackground(Color.PINK); 
+        clearBtn.setContentAreaFilled(false); 
+        clearBtn.setOpaque(true); 
+        clearBtn.setFocusPainted(false);
+
+        saveBtn.setForeground(iceBlue); 
+        saveBtn.setBackground(Color.PINK); 
+        saveBtn.setContentAreaFilled(false); 
+        saveBtn.setOpaque(true); 
+        saveBtn.setFocusPainted(false);
+
+        generateBtn.setForeground(iceBlue); 
+        generateBtn.setBackground(Color.PINK); 
+        generateBtn.setContentAreaFilled(false); 
+        generateBtn.setOpaque(true); 
+        generateBtn.setFocusPainted(false);
+
+        modeBtn.setForeground(iceBlue); 
+        modeBtn.setBackground(Color.PINK); 
+        modeBtn.setContentAreaFilled(false); 
+        modeBtn.setOpaque(true); 
+        modeBtn.setFocusPainted(false);
 
         footerPanel.add(clearBtn);
         footerPanel.add(saveBtn);
@@ -62,11 +88,40 @@ public class Footer {
 
     /* Method that will help toggle between light and dark mode */
     public void toggleMode() {
-        // Toggles the background between light and dark mode colors.
+        /* Toggles the background between light and dark mode colors. */
         if (footerPanel.getBackground().equals(iceBlue)) {
+
+            /* Dark Mode */
             footerPanel.setBackground(caramel);
+            
+            clearBtn.setBackground(darkText);
+            clearBtn.setForeground(mocha);
+
+            saveBtn.setBackground(darkText);
+            saveBtn.setForeground(mocha);
+
+            generateBtn.setBackground(darkText);
+            generateBtn.setForeground(mocha);
+
+            modeBtn.setBackground(darkText);
+            modeBtn.setForeground(mocha);
+
         } else {
+
+            /* Light Mode */
             footerPanel.setBackground(iceBlue);
+
+            clearBtn.setBackground(Color.PINK);
+            clearBtn.setForeground(iceBlue);
+
+            saveBtn.setBackground(Color.PINK);
+            saveBtn.setForeground(iceBlue);
+
+            generateBtn.setBackground(Color.PINK);
+            generateBtn.setForeground(iceBlue);
+
+            modeBtn.setBackground(Color.PINK);
+            modeBtn.setForeground(iceBlue);
         }
     }
 
