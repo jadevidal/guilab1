@@ -20,7 +20,7 @@ public class Header {
     private JLabel titleLabel = null;
 
     /* Colors */
-    Color lavender    = new Color(185, 176, 214); // #B9B0D6
+    Color lavender = new Color(185, 176, 214); // #B9B0D6
 
     /**
      * Default Constructor
